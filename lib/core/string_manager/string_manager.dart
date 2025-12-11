@@ -1,3 +1,3 @@
-class StringManager{
+abstract class StringManager{
 
 }

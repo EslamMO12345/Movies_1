@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/color_manager/color_manager.dart';
 
-class ThemeManager{
-   static final ThemeData light = ThemeData(
-
-   );
+abstract class ThemeManager {
+  static final ThemeData light = ThemeData(
+    scaffoldBackgroundColor: ColorManager.black,
+  );
 }
