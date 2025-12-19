@@ -11,13 +11,14 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(
       Duration(seconds: 2),
-      () => Navigator.pushNamed(context, RouteManager.home),
+      () => Navigator.pushNamed(context, RouteManager.login
+      ),
     );
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [Image.asset(ImageAsset.Logo)],
+        children: [Image.asset(ImageAsset.Logo, scale: 6,)],
       ),
     );
   }
