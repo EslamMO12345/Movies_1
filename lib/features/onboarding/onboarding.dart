@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:movies_app/core/asset_manager/asset_manager.dart';
 import 'package:movies_app/core/color_manager/color_manager.dart';
@@ -18,20 +20,20 @@ class _OnBoardingState extends State<OnBoarding> {
   Widget _buildImage(String assetName) {
     return Image.asset(
       assetName,
-      width: double.infinity,
-      height: double.infinity,
+      width: double.infinity.w,
+      height: double.infinity.h,
       fit: BoxFit.cover,
     );
   }
 
   Widget _buildButton(String text, VoidCallback onPressed, {bool isPrimary = false}) {
     return Container(
-      width: double.infinity,
-      height: 50,
+      width: double.infinity.w,
+      height: 50.h,
       decoration: BoxDecoration(
         color: isPrimary ? ColorManager.gold : Colors.transparent,
         borderRadius: BorderRadius.circular(12),
-        border: isPrimary ? null : Border.all(color: ColorManager.gold, width: 2),
+        border: isPrimary ? null : Border.all(color: ColorManager.gold, width: 2.w),
       ),
       child: TextButton(
         onPressed: onPressed,
@@ -40,7 +42,7 @@ class _OnBoardingState extends State<OnBoarding> {
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: isPrimary ? ColorManager.black2 : ColorManager.gold,
-            fontSize: 16,
+            fontSize: 16.sp,
           ),
         ),
       ),
@@ -49,27 +51,26 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
-    // 1. Adjust Page Decoration to push text up so buttons don't cover it
-    TextStyle bodyStyle = TextStyle(
-      fontSize: 20.0,
+    TextStyle bodyStyle = GoogleFonts.inter(
+      fontSize: 20.sp,
       color: ColorManager.white,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w400
     );
 
     var pageDecoration = PageDecoration(
-      titleTextStyle: TextStyle(
-        fontSize: 36.0,
+      titleTextStyle:
+      GoogleFonts.inter(
         fontWeight: FontWeight.w500,
-        color: ColorManager.white,
+        fontSize: 36.sp,
+        color: ColorManager.white
       ),
       bodyTextStyle: bodyStyle,
-      // Increased bottom padding to make room for the buttons
-      bodyPadding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 150.0),
+      bodyPadding:  REdgeInsets.fromLTRB(16.0, 0.0, 16.0, 150.0),
       pageColor: Colors.transparent,
       imagePadding: EdgeInsets.zero,
       imageFlex: 3,
-      bodyFlex: 2, // Give more space to the text area
-      contentMargin: const EdgeInsets.all(16),
+      bodyFlex: 2,
+      contentMargin:  REdgeInsets.all(16),
       fullScreen: true,
     );
 
@@ -112,7 +113,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 decoration: pageDecoration,
               ),
             ],
-            onDone: () {}, // Handled manually by buttons
+            onDone: () {},
             showSkipButton: false,
             showBackButton: false,
             showNextButton: false,
@@ -127,17 +128,13 @@ class _OnBoardingState extends State<OnBoarding> {
               });
             },
           ),
-
-          // Custom buttons at the bottom
           Positioned(
-            bottom: 30, // Pinned to bottom
-            left: 16,
-            right: 16,
+            bottom: 30.sp,
+            left: 16.sp,
+            right: 16.sp,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-
-                // CASE 1: First Screen (Index 0) -> Only "Next"
                 if (currentPage == 0) ...[
                   _buildButton(
                     "Next",
@@ -147,8 +144,6 @@ class _OnBoardingState extends State<OnBoarding> {
                     isPrimary: true,
                   ),
                 ],
-
-                // CASE 2: Middle Screens (Index 1, 2, 3) -> "Next" and "Back"
                 if (currentPage > 0 && currentPage < 4) ...[
                   _buildButton(
                     "Next",
@@ -166,8 +161,6 @@ class _OnBoardingState extends State<OnBoarding> {
                     isPrimary: false,
                   ),
                 ],
-
-                // CASE 3: Last Screen (Index 4) -> "Finish" and "Back"
                 if (currentPage == 4) ...[
                   _buildButton(
                     "Finish",

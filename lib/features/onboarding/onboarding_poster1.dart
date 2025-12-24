@@ -19,7 +19,7 @@ class OnboardingPoster1 extends StatelessWidget {
               color: ColorManager.black,
               child: Image.asset(
                 ImageAsset.Poster_1,
-                width: double.infinity,
+                width: double.infinity.w,
                 fit: BoxFit.cover,
               ),
             ),
@@ -29,8 +29,8 @@ class OnboardingPoster1 extends StatelessWidget {
               color: Colors.transparent,
               // Added background color for visibility
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+                topLeft: Radius.circular(20.r),
+                topRight: Radius.circular(20.r),
               ),
               boxShadow: [
                 BoxShadow(

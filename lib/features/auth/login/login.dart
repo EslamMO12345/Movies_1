@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding:  REdgeInsets.all(16.0),
         child: Column(
           children: [
             Image.asset(ImageAsset.Logo, scale: 10),
@@ -63,9 +63,9 @@ class Login extends StatelessWidget {
                 Expanded(
                   child: Divider(
                     color: ColorManager.gold,
-                    thickness: 1,
-                    endIndent: 10,
-                    indent: 100,
+                    thickness: 1.sp,
+                    endIndent: 10.sp,
+                    indent: 100.sp,
                   ),
                 ),
 
@@ -74,7 +74,7 @@ class Login extends StatelessWidget {
                   'OR',
                   style: GoogleFonts.inter(
                     color: ColorManager.gold,
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -82,9 +82,9 @@ class Login extends StatelessWidget {
                 Expanded(
                   child: Divider(
                     color: ColorManager.gold,
-                    thickness: 1,
-                    indent: 10,
-                    endIndent: 100,
+                    thickness: 1.sp,
+                    indent: 10.sp,
+                    endIndent: 100.sp,
                   ),
                 ),
               ],
