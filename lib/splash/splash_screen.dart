@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(
       Duration(seconds: 2),
-      () => Navigator.pushNamed(context, RouteManager.login
+      () => Navigator.pushNamed(context, RouteManager.onboardingPoster1
       ),
     );
     return Scaffold(
